@@ -7,7 +7,7 @@ const first = heroDestinations[0];
   <picture class="hero-picture"><source data-hero-mobile-source media="(max-width:600px)" srcset="/images/petra-mobile-600.webp 600w, /images/petra-mobile-900.webp 900w" sizes="100vw" /><img class="hero-photo" data-hero-image src="/images/petra-1920.webp" srcset={imageSrcset("petra")} sizes="100vw" alt={first.imageAlt} width="1920" height="1222" fetchpriority="high" decoding="async" style={`object-position:${first.imagePosition}`} /></picture>
   <div class="hero-shade"></div>
   <header class="site-header">
-    <a class="wordmark" href="#inicio" aria-label="Hito, inicio"><span class="brand-mark" aria-hidden="true">✳</span>HITO<span class="brand-dot">®</span></a>
+    <a class="wordmark" href="#inicio" aria-label="Hito, inicio"><span class="brand-mark" aria-hidden="true"><IconTA name="asterisk" /></span>HITO<span class="brand-dot">®</span></a>
     <nav class="desktop-nav" aria-label="Navegación principal"><a href="#lugares">Los lugares</a><a href="#mirada">Nuestra mirada</a><a href="#notas">Antes de ir</a></nav>
     <div class="header-actions"><button class="saved-link" data-open-favorites aria-label="Tu mapa, 0 lugares guardados"><IconTA name="heart" /><span>Tu mapa</span><span data-favorite-count class="saved-count">0</span></button><button class="mobile-menu" aria-label="Abrir navegación" aria-expanded="false" data-menu-toggle><IconTA name="menu" /></button></div>
   </header>

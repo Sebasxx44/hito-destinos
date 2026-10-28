@@ -1,11 +1,12 @@
 ---
-interface Props { name?: "arrow" | "heart" | "close" | "pin" | "menu"; class?: string; }
+interface Props { name?: "arrow" | "heart" | "close" | "pin" | "menu" | "asterisk"; class?: string; }
 const { name = "arrow", class: className = "" } = Astro.props;
 ---
-<svg class={className} viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<svg class={className} viewBox="0 0 24 24" width={name === "asterisk" ? "1em" : "24"} height={name === "asterisk" ? "1em" : "24"} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   {name === "arrow" && <path d="M5 19 19 5M5 5h14v14" />}
   {name === "heart" && <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />}
   {name === "close" && <path d="m6 6 12 12M6 18 18 6" />}
   {name === "pin" && <><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></>}
   {name === "menu" && <path d="M4 8h16M4 16h16" />}
+  {name === "asterisk" && <path d="M10.5 2h3v6.38l4.52-4.52 2.12 2.12-4.52 4.52H22v3h-6.38l4.52 4.52-2.12 2.12-4.52-4.52V22h-3v-6.38l-4.52 4.52-2.12-2.12 4.52-4.52H2v-3h6.38L3.86 5.98l2.12-2.12 4.52 4.52Z" fill="currentColor" stroke="none" />}
 </svg>
