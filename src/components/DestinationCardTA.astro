@@ -1,0 +1,11 @@
+---
+import IconTA from "@/components/IconTA.astro";
+import { imageSrcset } from "@/content";
+import type { Destination } from "@/types";
+interface Props { destination: Destination; index: number; }
+const { destination, index } = Astro.props;
+---
+<article class="destination-card" data-destination-card data-id={destination.id} data-continent={destination.continent}>
+  <div class="destination-image-wrap"><button class="destination-image-button" data-route={destination.id} aria-label={`Descubrir ${destination.name}`}><img src={`/images/${destination.id}-960.webp`} srcset={imageSrcset(destination.id)} sizes="(max-width: 620px) 90vw, 45vw" width="960" height="720" alt={destination.imageAlt} loading="lazy" decoding="async" style={`object-position:${destination.imagePosition}`} /><span class="destination-image-shade"></span><span class="destination-index">0{index + 1} / HITO</span><span class="destination-name">{destination.name}</span><span class="destination-discover">Conoce el lugar <IconTA /></span></button><button class="favorite-button" data-favorite={destination.id} aria-label={`Guardar ${destination.name} en tu mapa`} aria-pressed="false"><IconTA name="heart" /></button></div>
+  <div class="destination-meta"><div><p>{destination.country} <span>·</span> {destination.continent}</p><span>{destination.category.toLocaleLowerCase("es")}</span></div><button class="round-button" data-route={destination.id} aria-label={`Ver ruta de ${destination.name}`}><IconTA /></button></div>
+</article>

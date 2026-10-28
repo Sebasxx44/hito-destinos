@@ -1,0 +1,16 @@
+{
+  "name": "hito-destinos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./favorites": "./src/composables/favoriteStorage.ts" },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "tsc --noEmit && astro build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs"
+  },
+  "dependencies": { "astro": "^7.4.2" },
+  "overrides": { "rollup": "4.65.0" },
+  "devDependencies": { "typescript": "^6.0.0" }
+}

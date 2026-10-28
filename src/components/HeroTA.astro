@@ -1,0 +1,24 @@
+---
+import IconTA from "@/components/IconTA.astro";
+import { heroDestinations, imageSrcset } from "@/content";
+const first = heroDestinations[0];
+---
+<section class="hero" id="inicio" aria-label="Lugares destacados">
+  <picture class="hero-picture"><source data-hero-mobile-source media="(max-width:600px)" srcset="/images/petra-mobile-600.webp 600w, /images/petra-mobile-900.webp 900w" sizes="100vw" /><img class="hero-photo" data-hero-image src="/images/petra-1920.webp" srcset={imageSrcset("petra")} sizes="100vw" alt={first.imageAlt} width="1920" height="1222" fetchpriority="high" decoding="async" style={`object-position:${first.imagePosition}`} /></picture>
+  <div class="hero-shade"></div>
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="Hito, inicio"><span class="brand-mark" aria-hidden="true">✳</span>HITO<span class="brand-dot">®</span></a>
+    <nav class="desktop-nav" aria-label="Navegación principal"><a href="#lugares">Los lugares</a><a href="#mirada">Nuestra mirada</a><a href="#notas">Antes de ir</a></nav>
+    <div class="header-actions"><button class="saved-link" data-open-favorites aria-label="Tu mapa, 0 lugares guardados"><IconTA name="heart" /><span>Tu mapa</span><span data-favorite-count class="saved-count">0</span></button><button class="mobile-menu" aria-label="Abrir navegación" aria-expanded="false" data-menu-toggle><IconTA name="menu" /></button></div>
+  </header>
+  <nav class="mobile-nav" aria-label="Navegación móvil" data-mobile-nav hidden><a href="#lugares">Los lugares</a><a href="#mirada">Nuestra mirada</a><a href="#notas">Antes de ir</a></nav>
+  <div class="hero-topline"><span>UN ATLAS PARA LA CURIOSIDAD</span><span>VOLUMEN 01 — EL MUNDO, DE CERCA</span></div>
+  <h1 class="hero-title" data-hero-title data-length="short">PETRA</h1>
+  <div class="hero-center-label"><span class="cross">+</span><p data-hero-category>{first.category}</p><span class="cross">+</span></div>
+  <div class="hero-bottom">
+    <div class="hero-story"><p class="eyebrow"><span class="coral-dot"></span> PARA SALIR DE LO DE SIEMPRE</p><h2 data-hero-phrase>Hay lugares que no<br />necesitan palabras.</h2><div class="hero-story-actions"><button class="button button-cream" data-hero-route data-route="petra">Descubre este lugar <IconTA /></button><p>No colecciones destinos.<br />Encuentra los tuyos.</p></div></div>
+    <div class="hero-index"><div class="hero-index-top"><span data-hero-count>01</span><span>/ 03</span><div class="hero-arrows"><button aria-label="Destino anterior" data-hero-prev>←</button><button aria-label="Destino siguiente" data-hero-next>→</button></div></div><div class="hero-thumbnails" aria-label="Seleccionar lugar destacado">{heroDestinations.map((destination, index) => <button class:list={["hero-thumb", { "is-active": index === 0 }]} data-hero-select={index} aria-label={`Ver ${destination.name}`} aria-pressed={index === 0}><img src={`/images/${destination.id}-480.webp`} alt="" width="140" height="90" loading="lazy" /><span>{destination.name}</span><i></i></button>)}</div></div>
+  </div>
+  <div class="hero-footer"><a href="#lugares"><span>↓</span> SIGUE TU CURIOSIDAD</a><p><span data-hero-country>{first.country.toLocaleUpperCase("es")}</span><span data-hero-coordinates>{first.coordinates}</span></p><span>EXPLORA SIN PRISA.</span></div>
+  <p class="sr-only" role="status" data-hero-status></p>
+</section>
